@@ -31,27 +31,27 @@ public class Magpie
     public String getResponse(String statement)
     {
         String response = "";
-        if (statement.indexOf("no") >= 0)
+        if (findWord(statement, "no") >= 0)
         {
             response = "Why so negative?";
         }
-        else if (statement.indexOf("mother") >= 0
-                || statement.indexOf("father") >= 0
-                || statement.indexOf("sister") >= 0
-                || statement.indexOf("brother") >= 0)
+        else if (findWord(statement, "mother") >= 0
+                || findWord(statement, "father") >= 0
+                || findWord(statement, "sister") >= 0
+                || findWord(statement, "brother") >= 0)
         {
             response = "Tell me more about your family.";
         } 
-        else if (statement.indexOf("dog") >= 0
-                || statement.indexOf("cat") >= 0)
+        else if (findWord(statement, "dog") >= 0
+                || findWord(statement, "cat") >= 0)
         {
             response = "Tell me more about your pets.";
         }
-        else if (statement.indexOf("Mr.") >= 0)
+        else if (findWord(statement, "Mr.") >= 0)
         {
             response = "He sounds like a good teacher.";
         }
-        else if (statement.indexOf("Mrs.") >= 0) 
+        else if (findWord(statement, "Mrs.") >= 0) 
         {
             response = "She sounds like a good teacher.";
         }
@@ -59,14 +59,14 @@ public class Magpie
         {
             response = "Say something, please.";
         }
-        else if (statement.toLowerCase().indexOf("yes") >= 0)
+        else if (findWord(statement, "yes") >= 0)
         {
             response = "That's the spirit!";
         }
-        else if (statement.toLowerCase().indexOf("maybe") >= 0) {
+        else if (findWord(statement, "maybe") >= 0) {
             response = "I'll give you time to think about it.";
         }
-        else if (statement.toLowerCase().indexOf("fun") >= 0)
+        else if (findWord(statement, "fun") >= 0)
         {
             response = "That sure sounds like a lot of fun!";
         }
@@ -126,7 +126,9 @@ public class Magpie
     // The method returns the index of the first character in word
     // if it is found, and returns -1 otherwise. 
     public int findWord(String str, String word) {
-        return -1;
+        word = " " + word.toLowerCase() + " ";
+        str = " " + str.toLowerCase() + " ";
+        return (str.indexOf(word));
     }
 
     
