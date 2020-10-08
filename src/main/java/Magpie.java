@@ -142,8 +142,13 @@ public class Magpie
      */
     public String transformIWantStatement(String statement)
     {
-        //your code here
-        return "";
+        int idx = findWord(statement, "i want");
+        String word = "";
+        if(idx + 6 < statement.length()-1) {
+            word = statement.substring(idx + 6);
+        }
+        return "Would you really be happy if you had" + word + "?"; 
+        
     }
 
     /**
@@ -154,8 +159,8 @@ public class Magpie
      */
     public String transformIYouStatement(String statement)
     {
-        //your code here
-        return "";
+        String str = statement.substring(findWord(statement, "i") + 2, findWord(statement, "you") -1);
+        return "Why do you " + str + " me?";
     }
 
     /**
@@ -166,8 +171,12 @@ public class Magpie
      */
     public String transformIWantToStatement(String statement)
     {
-        // your code here
-        return "";
+        int idx = findWord(statement, "i want to");
+        String word = "";
+        if(idx + 9 < statement.length()-1) {
+            word = statement.substring(idx + 9);
+        }
+        return "What would it mean to" + word + "?"; 
     }
 
 
@@ -181,7 +190,7 @@ public class Magpie
      */
     public String transformYouMeStatement(String statement)
     {
-        // your code here
-        return "";
+        String str = statement.substring(findWord(statement, "you") + 3, findWord(statement, "me") -1);
+        return "What makes you think that I" + str + " you?";
     }
 }
