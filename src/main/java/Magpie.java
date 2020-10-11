@@ -70,6 +70,22 @@ public class Magpie
         {
             response = "That sure sounds like a lot of fun!";
         }
+        else if (findWord(statement, "i want to") >= 0) 
+        {
+            response = transformIWantToStatement(statement);
+        }
+        else if (findWord(statement, "i want") >= 0) 
+        {
+            response = transformIWantStatement(statement);
+        }
+        else if (findWord(statement, "i") >= 0 && (findWord(statement, "you") >= 0))
+        {
+            response = transformIYouStatement(statement);
+        }
+        else if (findWord(statement, "you") >= 0 && findWord(statement, "me") >= 0)
+        {
+            response = transformYouMeStatement(statement);
+        }
         else
         {
             response = getRandomResponse();
